@@ -1,0 +1,11 @@
+autopep8
+eppy
+gymnasium
+isort
+numpy
+opyplus
+pandas
+pytype
+twine
+xlsxwriter
+pipdeptree
