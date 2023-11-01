@@ -32,7 +32,6 @@ def model_predict_fn(state_vector, model):
 
 '''We illustrate CLUE by implementing confidence-based control with random-shooting method'''
 def choose_action(state, model_predict_fn, horizon, n_samples, environment_forecast, curr_step, model, epsilon, winter=True):
-    
     # initialize the zone temperature matrix
     zone_temperature_matrix = np.zeros((n_samples, horizon+1, 1))
     # populate every n_samples at time 0 with the current zone temperature
