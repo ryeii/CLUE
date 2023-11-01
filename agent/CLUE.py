@@ -34,8 +34,7 @@ def model_predict_fn(state_vector, model):
 def choose_action(state, model_predict_fn, horizon, n_samples, environment_forecast, curr_step, model, epsilon, winter=True):
 
     '''
-    Safe rule-based policy.
-    Override the MBRL agent when required.
+    Safe rule-based policy; override the MBRL agent when required.
     '''
     if curr_step % 96 < 31 or curr_step % 96 > 84: # empty building
         return [30, 15]
