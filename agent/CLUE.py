@@ -32,17 +32,6 @@ def model_predict_fn(state_vector, model):
 
 '''We illustrate CLUE by implementing confidence-based control with random-shooting method'''
 def choose_action(state, model_predict_fn, horizon, n_samples, environment_forecast, curr_step, model, epsilon, winter=True):
-
-    '''
-    Safe rule-based policy; override the MBRL agent when required.
-    '''
-    if curr_step % 96 < 31 or curr_step % 96 > 84: # empty building
-        return [30, 15]
-    if curr_step % 96 == 31 or curr_step % 96 == 32: # pre-occupied
-        return [22, 22]
-    if state < 20.0 or state > 23.5: # violation
-        return [22, 22]
-
     # initialize the zone temperature matrix
     zone_temperature_matrix = np.zeros((n_samples, horizon+1, 1))
     # populate every n_samples at time 0 with the current zone temperature
